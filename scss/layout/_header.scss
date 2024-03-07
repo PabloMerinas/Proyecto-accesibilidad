@@ -1,0 +1,9 @@
+@use '../base/variables';
+
+.brand{
+    font-size: 24px;
+    font-weight: bold;
+    span{
+        margin-left: 40px;
+    }
+}

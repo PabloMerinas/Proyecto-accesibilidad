@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <title>Tienda Jabones PMS</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Header -->
+            <div class="container text-center bg-primary" role="banner">
+                <div class="row">
+                    <div class="brand col d-flex align-items-center justify-content-center text-white">
+                        <a class="navbar-brand" href="#">
+                            <img src="img/logoNormal.svg" alt="Logo" width="100" class="d-inline-block align-text-top"
+                                aria-label="Logotipo de la tienda">
+                        </a>
+                        <span><abbr title="Tienda de jabones">Tienda de jabones</abbr></span>
+                        <!-- Aqui utilizo abbr para resaltar el nombre de la tienda -->
+                    </div>
+                </div>
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg justify-content-center" role="navigation"
+                        aria-label="Menú principal">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <i class="bi-house-fill text-white"></i>
+                                <a class="nav-link text-white pt-0" href="index.html" role="button">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <i class="bi-bag text-white"></i>
+                                <a class="nav-link text-white pt-0" href="estadisticas.html"
+                                    role="button">Estadísticas</a>
+                            </li>
+                            <li class="nav-item">
+                                <i class="bi-envelope-fill text-white"></i>
+                                <a class="nav-link text-white pt-0" role="button">Contacto</a>
+                            </li>
+                            <li class="nav-item active">
+                                <i class="bi-person-fill text-white"></i>
+                                <a class="nav-link text-white pt-0" href="register.html" role="button"
+                                    aria-current="page"><em>Registro de usuario</em></a>
+                                <!-- Aqui uso em para remarcar que estamos en la de registro-->
+                            </li>
+                            <li class="nav-item">
+                                <i class="bi-basket2-fill text-white"></i>
+                                <a class="nav-link text-white pt-0" role="button">Carrito</a>
+                            </li>
+                            <li class="nav-item ms-3">
+                                <button class="btn btn-dark shadow" id="btnSwitch"
+                                    aria-label="Cambiar modo de color a oscuro">Tema</button>
+                            </li>
+                        </ul>
+                    </nav>
+
+
+
+                </div>
+
+                <!-- Agrega el elemento Toast -->
+                <div class="toast" id="notification-toast" role="alertdialog" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header text-center justify-content-center">
+                        <strong class="mr-auto" id="toast-header">¡HAS CLICADO EN LA CAMPANITA!</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="toast-body" aria-labelledby="toast-header">
+                        No tienes ninguna notificación.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Header -->
+    <!-- Migas de pan -->
+    <nav aria-label="Migas de pan" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Registro</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <!-- body-->
+        <!-- Sidebar -->
+        <div class="col-3 sidebar" style="width: 12%;" role="complementary">
+            <div class="banner">
+                <img id="discount" src="img/banner30.png" alt="Banner de descuento" class="img-fluid">
+            </div>
+            <div class="categories list-group" aria-label="Categorías de productos">
+                <h2 class="list-group-item bg-transparent border-0 text-center">Categorías</h2>
+                <ul class="list-group-item bg-transparent border-0">
+                    <li class="list-group-item bg-transparent border-0 py-0">Jabones base agua</li>
+                    <li class="list-group-item bg-transparent border-0 py-0">Jabones base silicona</li>
+                    <li class="list-group-item bg-transparent border-0 py-0">Jabones base agua</li>
+                </ul>
+            </div>
+            <div class="filters card bg-transparent border-0">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Filtros</h2>
+
+                    <div class="form-group">
+                        <label for="price-range">Rango de Precio</label>
+                        <input type="range" id="price-range" name="price-range" min="0" max="100" step="10"
+                            class="form-control-range">
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="alergicos-filter" name="alergicos-filter" class="form-check-input">
+                        <label for="alergicos-filter" class="form-check-label">Alergicos</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="radio-filter" name="radio-filter" class="form-check-input">
+                        <label for="radio-filter" class="form-check-label">Veganos</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Fin Sidebar -->
+        <div class="col">
+            <!-- Body -->
+            <div class="container text-center pt-4">
+                <h3><em>Registro de usuario</em></h3> <!-- Vuelvo a usar em para remarcar donde estamos -->
+                <form role="form" aria-label="Formulario de registro">
+                    <div class="row">
+                        <div class="col">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" aria-label="Nombre"
+                                aria-describedby="nombre-tooltip" aria-required="true" title="Ingresa tu nombre">
+                        </div>
+                        <div class="col">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" aria-label="Apellido"
+                                aria-describedby="apellido-tooltip" aria-required="true" title="Ingresa tu apellido">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" aria-label="Correo Electrónico"
+                                aria-describedby="email-tooltip" aria-required="true"
+                                title="Ingresa tu correo electrónico">
+                        </div>
+                        <div class="col">
+                            <label for="contraseña" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="contraseña" aria-label="Contraseña"
+                                aria-describedby="contraseña-tooltip" aria-required="true"
+                                title="Ingresa tu contraseña">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="telefono" class="form-label">Número de Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" aria-label="Número de Teléfono"
+                                aria-describedby="telefono-tooltip" aria-required="true"
+                                title="Ingresa tu número de teléfono">
+                            <div id="telefono-tooltip" class="tooltip bs-tooltip-top" role="tooltip">
+                                <div class="tooltip-inner">
+                                    Ingresa tu número de teléfono
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="text" class="form-control" id="fechaNacimiento"
+                                aria-label="Fecha de Nacimiento" aria-describedby="fechaNacimiento-tooltip"
+                                aria-required="true" title="Ingresa tu fecha de nacimiento">
+                            <div id="fechaNacimiento-tooltip" class="tooltip bs-tooltip-top" role="tooltip">
+                                <div class="tooltip-inner">
+                                    Ingresa tu fecha de nacimiento
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="comunidad" class="form-label">Comunidad Autónoma</label>
+                            <select class="form-select" id="comunidad" aria-label="Comunidad Autónoma"
+                                aria-describedby="comunidad-tooltip" aria-required="true">
+                                <option value="" selected>Selecciona una comunidad autónoma</option>
+                                <option value="andalucia">Andalucía</option>
+                                <option value="aragon">Aragón</option>
+                                <option value="asturias">Asturias</option>
+                            </select>
+                            <div id="comunidad-tooltip" class="tooltip bs-tooltip-top" role="tooltip">
+                                <div class="tooltip-inner">
+                                    Selecciona tu comunidad autónoma
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button type="submit" id="enviar" class="btn btn-primary mt-3">Enviar</button>
+                            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                                data-bs-target="#cancelarFormModal">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="cancelarFormModal" tabindex="-1" role="dialog"
+                aria-labelledby="cancelarFormModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cancelarFormModalLabel">Confirmar cancelación</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Estás seguro de querer cancelar el formulario?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Body -->
+        </div>
+    </div>
+    <div class="row">
+        <!-- Footer -->
+        <footer class="bg-dark text-light" role="contentinfo">
+            <div class="container align-items-center text-center">
+                <div class="row">
+                    <div class="col">
+                        <h2>Información de la <em>Tienda de jabones</em></h2>
+                        <ul class="list-group">
+                            <li class="list-group-item">Dirección: Avenida inventada de la sierra Numero 10</li>
+                            <li class="list-group-item">Teléfono: 611196230</li>
+                            <li class="list-group-item">Email: info@jabonesbuenosbonitosybaratos.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h2>Enlaces de Interés</h2>
+                        <div class="copyrights">
+                            <a href="copyright.html" class="text-light">
+                                <img src="https://ciad.cuaieed.unam.mx/images/creativecommons/cc_by-nc-nd.png"
+                                    alt="copyright" class="img-fluid">
+                                <p class="mt-2">Licencia bajo Creative Commons</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('notification-icon').addEventListener('click', function () {
+            var toast = new bootstrap.Toast(document.getElementById('notification-toast'));
+            toast.show();
+        });
+    </script>
+</body>
+
+</html>

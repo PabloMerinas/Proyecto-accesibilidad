@@ -1,0 +1,30 @@
+@use '../base/variables';
+
+
+.producto{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    button{
+        background-color: #2ecc71;
+        color: white;
+        padding: 5px 10px;
+        margin-top: 5px;
+        cursor: pointer;
+
+    }
+    .licencia{
+        max-width: 100%;
+        width: 100%;
+        padding: 10px;
+        position: relative;
+        bottom: -20px;
+        img{
+            width: 40px;
+        }
+        p{
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+    }
+}
